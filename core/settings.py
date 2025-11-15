@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+from urllib.parse import urlparse, parse_qsl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,28 +79,39 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# Add these at the top of your settings.py
-import os
-from dotenv import load_dotenv
-from urllib.parse import urlparse, parse_qsl
 
 load_dotenv()
 
-# Replace the DATABASES section of your settings.py with this
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
-        'OPTIONS': dict(parse_qsl(tmpPostgres.query)),
-    }
+POSTGRES_CONFIG = {
+    "ENGINE": "django.db.backends.postgresql",
+    "NAME": tmpPostgres.path.replace("/", ""),
+    "USER": tmpPostgres.username,
+    "PASSWORD": tmpPostgres.password,
+    "HOST": tmpPostgres.hostname,
+    "PORT": 5432,
+    "OPTIONS": dict(parse_qsl(tmpPostgres.query)),
 }
 
+# 3. Configuração do SQLite para Desenvolvimento/Testes
+SQLITE_CONFIG = {
+    "ENGINE": "django.db.backends.sqlite3",
+    # Você pode querer usar um caminho que garanta que o arquivo db.sqlite3
+    # seja criado no diretório raiz do seu projeto.
+    "NAME": BASE_DIR / "db.sqlite3",
+}
+
+# 4. Aplicação da lógica condicional
+if DEBUG == True:
+    DATABASES = {
+        "default": SQLITE_CONFIG,
+    }
+else:
+
+    DATABASES = {
+        "default": POSTGRES_CONFIG,
+    }
 
 
 # Password validation
@@ -139,6 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -154,7 +168,7 @@ from pathlib import Path
 # ... (assumindo que BASE_DIR está definido corretamente)
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
    
     os.path.join(BASE_DIR, 'core', 'static'), 
