@@ -125,3 +125,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+# settings.py
+# settings.py
+import os
+from pathlib import Path
+
+# ... (assumindo que BASE_DIR está definido corretamente)
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    # Adiciona a pasta 'assets' do seu app 'core'
+    # Django vai procurar aqui por arquivos estáticos que não estão em uma app específica.
+    os.path.join(BASE_DIR, 'core', 'static'), 
+]
+
+# Note: Se você já tinha STATICFILES_DIRS, apenas adicione o novo caminho à lista.
+# Exemplo: STATICFILES_DIRS = [os.path.join(BASE_DIR, 'core', 'assets'),]

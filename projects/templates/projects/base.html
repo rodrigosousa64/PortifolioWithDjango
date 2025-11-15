@@ -1,59 +1,62 @@
-
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="pt=br">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>{% block head %} Portifolio {% endblock %}</title> 
-   <link rel="stylesheet" href="{% static 'projects/base.css' %}">
+    <title>{% block head %} Portifolio {% endblock %}</title> 
+    
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
-<body>
 
-  <div id="navbar" style = "inline-block; margin-bottom: 20px;">
-     <a href="/home">Home</a>
-     <a href="/projects"> Projects</a>
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-     {% if user.is_authenticated%}
-        <form method="POST" action="{% url 'logout' %}">
-          {% csrf_token %}
-          <input type="submit" value="logout">
-        </form>
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
+            <nav id="navbar" class="space-x-4">
+                <a href="/home" class="text-lg font-semibold text-gray-700 hover:text-indigo-600 transition duration-150">Home</a>
+                <a href="/projects" class="text-lg font-semibold text-gray-700 hover:text-indigo-600 transition duration-150">Projects</a>
+            </nav>
 
-      {% else %}
-     <a href="/login"> login</a>
-      {% endif %}
+            <div class="flex items-center space-x-4">
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'logout' %}" class="inline-block">
+                    {% csrf_token %}
+                    <button type="submit" class="px-4 py-2 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition duration-150 shadow-md">
+                        Logout
+                    </button>
+                </form>
+                {% else %}
+                <a href="/login" class="px-4 py-2 bg-indigo-500 text-white font-medium rounded-lg hover:bg-indigo-600 transition duration-150 shadow-md">
+                    Login
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
 
-     {% comment %} <a href="/documetation">Documetation</a> {% endcomment %}
-     {% comment %} <a href="/about">About</a> {% endcomment %}
-  </div>
-
-   <hr>
-
-
-    {% block content %}
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
     
+    <footer class="mt-auto bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <p class="text-gray-400">&copy; 2025 Rodrigo Sousa. Todos os direitos reservados.</p>
+            
+            <div name="footer-content" class="space-x-4"> 
+                <a href="https://www.linkedin.com/in/rodrigo-sousa-barbosa-4702872b8/" target="_blank" 
+                   class="hover:text-indigo-400 transition duration-150">
+                    <i class="fab fa-linkedin"></i> Linkedin
+                </a>
+                <a href="https://github.com/rodrigosousa64?tab=repositories" target="_blank" 
+                   class="hover:text-indigo-400 transition duration-150">
+                    <i class="fab fa-github"></i> Github
+                </a>
+            </div>
+        </div>
+    </footer>
     
-    
-    
-    {% endblock %}
-
-
-
-     <footer>  
-       <hr>
-
-       <div name="fotter-content"> 
-       <a href="https://www.linkedin.com/in/rodrigo-sousa-barbosa-4702872b8/" target="_blank"> Linkedin</a>
-       <a href="https://github.com/rodrigosousa64?tab=repositories" target="_blank">Github</a>
-
-      
-
-     </footer>
-    
-</body>
+    </body>
 </html>
-
-
-
-
