@@ -7,3 +7,4 @@ css-watch:
 
 css-build:
 	./tailwindcss -i $(TAILWIND_INPUT) -o $(TAILWIND_OUTPUT) --minify
+
