@@ -1,0 +1,59 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="pt=br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{% block head %} Portifolio {% endblock %}</title> 
+   <link rel="stylesheet" href="{% static 'projects/base.css' %}">
+</head>
+<body>
+
+  <div id="navbar" style = "inline-block; margin-bottom: 20px;">
+     <a href="/home">Home</a>
+     <a href="/projects"> Projects</a>
+
+     {% if user.is_authenticated%}
+        <form method="POST" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <input type="submit" value="logout">
+        </form>
+
+      {% else %}
+     <a href="/login"> login</a>
+      {% endif %}
+
+     {% comment %} <a href="/documetation">Documetation</a> {% endcomment %}
+     {% comment %} <a href="/about">About</a> {% endcomment %}
+  </div>
+
+   <hr>
+
+
+    {% block content %}
+    
+    
+    
+    
+    {% endblock %}
+
+
+
+     <footer>  
+       <hr>
+
+       <div name="fotter-content"> 
+       <a href="https://www.linkedin.com/in/rodrigo-sousa-barbosa-4702872b8/" target="_blank"> Linkedin</a>
+       <a href="https://github.com/rodrigosousa64?tab=repositories" target="_blank">Github</a>
+
+      
+
+     </footer>
+    
+</body>
+</html>
+
+
+
+
