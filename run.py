@@ -8,7 +8,7 @@ def iniciar_gunicorn():
     Inicia o servidor Gunicorn para a aplicação WSGI.
     """
     # O comando a ser executado
-    comando = "waitress-serve --port=8000 core.wsgi:application"
+    comando = "waitress-serve --port=80 core.wsgi:application"
 
     # Opcional: Adicionar argumentos extras, por exemplo, para definir a porta
     # comando = "gunicorn --bind 0.0.0.0:8000 core.wsgi:application"
