@@ -1,4 +1,9 @@
-# Byte-compiled / optimized / DLL files
+#
+# it is so much big
+tailwindcss
+
+
+ Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
