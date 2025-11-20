@@ -116,6 +116,10 @@
     transition: background-color 0.3s ease;
 }
 
+.project-card {
+    background-color: rgb(0, 8, 41);
+}
+
 
 
 /* ... o restante dos estilos (no-projects-message e responsividade) permanecem inalterados ... */
