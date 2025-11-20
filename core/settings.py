@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-para-desenvolvimento")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -82,7 +82,7 @@ tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
 POSTGRES_CONFIG = {
     "ENGINE": "django.db.backends.postgresql",
-    "NAME": tmpPostgres.path.replace("/", ""),
+    "NAME": tmpPostgres.path.replace("/",""),
     "USER": tmpPostgres.username,
     "PASSWORD": tmpPostgres.password,
     "HOST": tmpPostgres.hostname,

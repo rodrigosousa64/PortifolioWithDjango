@@ -6,29 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block head %} Portifolio {% endblock %}</title> 
     
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="body-container">
 
-    <header class="bg-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <header class="header-container">
+        <div class="header-content">
             
-            <nav id="navbar" class="space-x-4">
-                <a href="/home" class="text-lg font-semibold text-gray-700 hover:text-indigo-600 transition duration-150">Home</a>
-                <a href="/projects" class="text-lg font-semibold text-gray-700 hover:text-indigo-600 transition duration-150">Projects</a>
+            <nav id="navbar" class="nav-links">
+                <a href="/home" class="nav-item">Home</a>
+                <a href="/projects" class="nav-item">Projects</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
+            <div class="auth-controls">
                 {% if user.is_authenticated %}
-                <form method="POST" action="{% url 'logout' %}" class="inline-block">
+                <form method="POST" action="{% url 'logout' %}" class="logout-form">
                     {% csrf_token %}
-                    <button type="submit" class="px-4 py-2 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition duration-150 shadow-md">
+                    <button type="submit" class="button logout-button">
                         Logout
                     </button>
                 </form>
                 {% else %}
-                <a href="/login" class="px-4 py-2 bg-indigo-500 text-white font-medium rounded-lg hover:bg-indigo-600 transition duration-150 shadow-md">
+                <a href="/login" class="button login-button">
                     Login
                 </a>
                 {% endif %}
@@ -36,22 +37,22 @@
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+    <main class="main-content">
         {% block content %}
         {% endblock %}
     </main>
     
-    <footer class="mt-auto bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-            <p class="text-gray-400">&copy; 2025 Rodrigo Sousa. Todos os direitos reservados.</p>
+    <footer class="footer-container">
+        <div class="footer-content">
+            <p class="footer-text">&copy; 2025 Rodrigo Sousa. Todos os direitos reservados.</p>
             
-            <div name="footer-content" class="space-x-4"> 
+            <div name="footer-content" class="social-links"> 
                 <a href="https://www.linkedin.com/in/rodrigo-sousa-barbosa-4702872b8/" target="_blank" 
-                   class="hover:text-indigo-400 transition duration-150">
+                   class="social-item">
                     <i class="fab fa-linkedin"></i> Linkedin
                 </a>
                 <a href="https://github.com/rodrigosousa64?tab=repositories" target="_blank" 
-                   class="hover:text-indigo-400 transition duration-150">
+                   class="social-item">
                     <i class="fab fa-github"></i> Github
                 </a>
             </div>
