@@ -1,0 +1,98 @@
+/* -------------------------------------------------- */
+/* 7. Estilos Específicos para About Page (about.html) */
+/* -------------------------------------------------- */
+
+.about-me-section {
+    padding-bottom: var(--spacing-lg);
+    /* Espaçamento abaixo da seção de introdução */
+    border-bottom: 1px dashed var(--border-color);
+    /* Linha divisória sutil */
+    margin-bottom: var(--spacing-lg);
+}
+
+.description-text {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Experiência Profissional e Formação */
+.professional-experience-section,
+.education-and-courses-section {
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+}
+
+.job-card {
+    /* Herda o fundo claro do body, e a sombra do seu base.css */
+    background-color: var(--background-color);
+    padding: var(--spacing-lg);
+    border-radius: 6px;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--box-shadow-sm);
+    border: 1px solid var(--border-color);
+    /* Borda sutil */
+}
+
+.job-card h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-dark);
+}
+
+.job-card .duration {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.job-card ul {
+    margin-left: var(--spacing-lg);
+    list-style-type: disc;
+    /* Usando bolinhas padrão */
+}
+
+.job-card li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+/* Educação e Cursos */
+.education-item {
+    margin-bottom: var(--spacing-md);
+}
+
+.education-item h3 {
+    margin-bottom: 0;
+}
+
+.education-item p {
+    margin-top: var(--spacing-xs);
+    color: var(--secondary-color);
+}
+
+.course-detail {
+    font-size: 0.95rem;
+    margin-top: var(--spacing-md);
+    padding-left: var(--spacing-md);
+    border-left: 3px solid var(--success-color);
+    /* Destaca as qualificações */
+    color: var(--secondary-color);
+}
+
+/* -------------------------------------------------- */
+/* Responsividade para About */
+/* -------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .job-card,
+    .education-item {
+        padding: var(--spacing-md);
+    }
+
+    .job-card ul {
+        margin-left: var(--spacing-md);
+    }
+}

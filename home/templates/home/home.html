@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock extra_css %}
+
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-text">
+        <h2 class="welcome-title">Olá, eu sou Rodrigo de Sousa Barbosa!</h2>
+        <p class="tagline">
+            Acadêmico de <strong>Engenharia da Computação</strong> (5º semestre) e desenvolvedor focado em <strong>Back-end Python</strong>.
+        </p>
+        <p class="summary-text">
+            Meu foco está em construir <strong>aplicações web monolíticas</strong> e <strong>APIs REST</strong> robustas e escaláveis, utilizando o stack Python: <strong>Django</strong> (principal foco), <strong>Flask/FastAPI</strong>, <strong>PostgreSQL</strong>, e <strong>Docker</strong>. Busco transformar conhecimento teórico em projetos práticos, com ênfase no uso correto de <strong>Git</strong> e testes unitários com <strong>Pytest</strong>.
+        </p>
+        <a href="/projects" class="button primary-button">
+            Veja Meus Projetos <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+    </section>
+
+<section class="skill-summary-section">
+    <h3>🛠️ Minhas Habilidades Chave</h3>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>Linguagens e Frameworks</h4>
+            <p>
+                <strong>Python (POO)</strong>, <strong>Django</strong> (Foco principal), <strong>Flask</strong>, <strong>APIS REST</strong>, HTML/CSS e JavaScript Básico.
+            </p>
+        </div>
+        <div class="skill-card">
+            <h4>Banco de Dados e Infraestrutura</h4>
+            <p>
+                <strong>SQLAlchemy</strong>, <strong>PostgreSQL</strong>, <strong>Docker</strong> (Iniciante) para containerização de serviços.
+            </p>
+        </div>
+        <div class="skill-card">
+            <h4>Processo e Qualidade</h4>
+            <p>
+                <strong>Git</strong> e Versionamento de Código, Testes (<strong>Pytest</strong> e TDD), Metodologias Ágeis (Scrum, Kanban).
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

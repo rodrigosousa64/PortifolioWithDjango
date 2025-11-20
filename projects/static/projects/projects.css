@@ -1,0 +1,121 @@
+/* -------------------------------------------------- */
+/* 6. Estilos da Página de Projetos (Refatorado para Robustez) */
+/* -------------------------------------------------- */
+
+/* Título da Página (Sem alteração, pois o título é obrigatório) */
+.page-title {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+    display: block;
+}
+
+/* Container do Grid de Projetos (Sem alteração, Grid é robusto) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+}
+
+/* Cartão Individual do Projeto */
+.project-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--box-shadow-sm);
+    min-height: 250px;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Título do Projeto no Cartão (Obrigatório) */
+.project-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Descrição do Projeto (OPCIONAL) */
+.project-description {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    /* Garante que a descrição ocupe o máximo de espaço, empurrando o resto para baixo. */
+    flex-grow: 1;
+    /* Se a tag <p> da descrição não existir no HTML, nada quebra. */
+}
+
+/* Detalhes (Stack e Data) */
+/* Usamos :empty ou apenas confiamos que o elemento pai (project-details)
+   seja ocultado pelo Django se estiver vazio, mas garantimos o margin-top: auto. */
+.project-details {
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px dashed var(--border-color);
+    /* Se a descrição estiver vazia, .project-details sobe,
+       graças ao flex-grow: 1 na descrição (ou sua ausência). */
+}
+
+/* Garante que o item de Stack só apareça se houver conteúdo */
+/* Como o item de Data é obrigatório (e está no mesmo flex container),
+   o margin-bottom de .detail-item é mantido. */
+.detail-item,
+.detail-item-date {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-right: var(--spacing-sm);
+}
+
+/* Badge de Tecnologia (Stack - OPCIONAL) */
+/* O CSS lida com a apresentação; o Django deve evitar renderizar
+   a tag <span> .detail-badge se o campo estiver vazio. */
+.detail-badge {
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Ações (Link do Repositório - OPCIONAL) */
+.project-actions {
+    margin-top: var(--spacing-md);
+    text-align: right;
+    /* Se a tag <div> estiver vazia, ela não ocupa espaço. */
+}
+
+.repository-link {
+    display: inline-block;
+    color: var(--card-background);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* ... o restante dos estilos (no-projects-message e responsividade) permanecem inalterados ... */

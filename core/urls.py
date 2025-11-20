@@ -24,4 +24,6 @@ urlpatterns = [
     path("projects/", include("projects.urls")),
     path("login/", LoginView.as_view(), name="login"),
     path("logout/", LogoutView.as_view(), name="logout"),
+    path("home", include("home.urls")),
+    path("", include("home.urls")),
 ]

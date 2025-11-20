@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-para-desenvolvimento")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'projects',
+    'home',
     
 ]
 
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,7 +100,7 @@ SQLITE_CONFIG = {
 }
 
 # 4. Aplicação da lógica condicional
-if DEBUG == True:
+if DEBUG == False:
 
     DATABASES = {
         "default": SQLITE_CONFIG,
@@ -156,6 +157,5 @@ STATICFILES_DIRS = [
      ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 

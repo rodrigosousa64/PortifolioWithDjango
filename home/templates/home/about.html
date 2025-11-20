@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/about.css' %}">
+{% endblock extra_css %}
+
+{% block head %}Sobre - Rodrigo Sousa{% endblock %}
+
+{% block content %}
+<section class="about-me-section">
+    <h2 class="section-title">Um Pouco Sobre Mim</h2>
+    <p class="description-text">
+        Minha transição da área de <strong>Redes Telecom</strong> para o desenvolvimento de sistemas é impulsionada pela paixão por lógica e otimização. Eu prospero em ambientes com <strong>comunicação direta e objetivos claros</strong>, onde posso usar argumentos objetivos e focar em projetos práticos.
+    </p>
+
+    <p class="description-text">
+        Como estudante de Engenharia da Computação, estou comprometido com o aprendizado contínuo, com ênfase em melhorar minha <strong>fluência em Inglês</strong> e internalizar o uso profissional de <strong>Git com commits bem documentados</strong>. Meu objetivo é fazer a transição de carreira até Junho de 2026.
+    </p>
+</section>
+
+---
+
+<section class="professional-experience-section">
+    <h2 class="section-title">Experiência Profissional Relevante</h2>
+    
+    <div class="job-card">
+        <h3>Técnico de Redes Telecom N1 | Vellon Ltda</h3>
+        <p class="duration">Julho/2024 - Atualmente</p>
+        <ul>
+            <li>
+                Gestão de alto volume de tarefas técnicas (média de 800 solicitações/mês), focando em <strong>análise de viabilidade técnica</strong> para ativação de clientes.
+            </li>
+            <li>
+                Criação e manutenção de <strong>documentação técnica detalhada</strong> (infraestrutura FTTH), competência essencial para documentação de APIs.
+            </li>
+            <li>
+                Uso de Sistemas de Gestão (<strong>Bitrix24</strong>, IXC Telecom) para otimização do fluxo de trabalho e criação de Ordens de Serviço (OS).
+            </li>
+        </ul>
+    </div>
+    
+    <div class="job-card">
+        <h3>Auxiliar Administrativo (aprendiz) | L'auto Cargo Ltda</h3>
+        <p class="duration">Março/2023 - Março/2024</p>
+        <ul>
+            <li>
+                Responsável pela documentação de notas fiscais e criação de Conhecimentos de Transporte Eletrônico (CTE), desenvolvendo <strong>atenção a detalhes</strong> e precisão.
+            </li>
+        </ul>
+    </div>
+</section>
+
+---
+
+<section class="education-and-courses-section">
+    <h2 class="section-title">Formação e Qualificações</h2>
+    
+    <div class="education-item">
+        <h3>Engenharia da Computação (5º Semestre)</h3>
+        <p>ESTÁCIO NAZARÉ, JOSÉ MALCHER/BEL</p>
+    </div>
+
+    <div class="courses-item">
+        <h4>Trilhas de Desenvolvimento Web e Python</h4>
+        <p>
+            Alura (Trilha Python Web), B7web (Python Orientado a Objetos, Django Web), CURSO.DEV: Filipe Deschamps.
+        </p>
+        <p class="course-detail">
+            Conteúdo focado em: <strong>Estrutura Django</strong>, Testes automatizados (Pytest), Versionamento com Git ($CI/CD$), Desenvolvimento de <strong>APIs seguras</strong>, e <strong>Deploy</strong> com Docker e GitHub Actions.
+        </p>
+    </div>
+</section>
+
+{% endblock %}

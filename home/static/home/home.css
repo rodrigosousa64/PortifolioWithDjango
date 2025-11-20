@@ -1,0 +1,96 @@
+/* -------------------------------------------------- */
+/* 6. Estilos Específicos para Home Page (home.html) */
+/* (Baseado nas suas variáveis em base.css) */
+/* -------------------------------------------------- */
+
+.hero-section {
+    /* As variáveis como --spacing-xl e --border-color são definidas no seu base.css */
+    padding: var(--spacing-xl) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    border-bottom: 1px dashed var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.welcome-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+    border: none;
+    padding-bottom: 0;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.summary-text {
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.1rem;
+}
+
+.primary-button {
+    /* A classe .button já é definida no base.css */
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Habilidades */
+.skill-summary-section {
+    padding: var(--spacing-lg) 0;
+}
+
+.skills-grid {
+    display: grid;
+    /* Define o grid para ter colunas que se ajustam, com tamanho mínimo de 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.skill-card {
+    /* As variáveis --background-color, --primary-color e --box-shadow-sm são definidas no base.css */
+    background-color: var(--background-color);
+    padding: var(--spacing-lg);
+    border-radius: 6px;
+    box-shadow: var(--box-shadow-sm);
+    border-left: 5px solid var(--primary-color);
+}
+
+.skill-card h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Responsividade específica para Home (Mobile) */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg) 0;
+    }
+
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    .skills-grid {
+        /* No mobile, o grid se torna uma única coluna */
+        grid-template-columns: 1fr;
+    }
+}
