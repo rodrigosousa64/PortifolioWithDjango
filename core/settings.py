@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 from urllib.parse import urlparse, parse_qsl
 from pathlib import Path
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -80,37 +82,38 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 load_dotenv()
 
-tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
-POSTGRES_CONFIG = {
-    "ENGINE": "django.db.backends.postgresql",
-    "NAME": tmpPostgres.path.replace("/",""),
-    "USER": tmpPostgres.username,
-    "PASSWORD": tmpPostgres.password,
-    "HOST": tmpPostgres.hostname,
-    "PORT": 5432,
-    "OPTIONS": dict(parse_qsl(tmpPostgres.query)),
+# 1. Obter a URL e fazer o parse
+database_url = os.getenv("DATABASE_URL")
+tmpPostgres = urlparse(database_url)
+
+
+db_path = tmpPostgres.path
+if isinstance(db_path, bytes):
+    db_path = db_path.decode("utf-8")
+
+
+DB_NAME = db_path.lstrip("/")
+
+# Verificação de segurança: Se o nome estiver vazio, algo está errado
+if not DB_NAME:
+   
+    raise ValueError("DATABASE_URL não contém o nome do banco de dados.")
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": DB_NAME,  # <-- Usando a variável corrigida
+        "USER": tmpPostgres.username,
+        "PASSWORD": tmpPostgres.password,
+        "HOST": tmpPostgres.hostname,
+        "PORT": tmpPostgres.port or 5432,  # Adicionei uma verificação de porta
+        "OPTIONS": dict(parse_qsl(tmpPostgres.query)),
+    }
 }
 
-# 3. Configuração do SQLite para Desenvolvimento/Testes
-SQLITE_CONFIG = {
-    "ENGINE": "django.db.backends.sqlite3",
-    # Você pode querer usar um caminho que garanta que o arquivo db.sqlite3
-    # seja criado no diretório raiz do seu projeto.
-    "NAME": BASE_DIR / "db.sqlite3",
-}
 
 # 4. Aplicação da lógica condicional
-if DEBUG == True:
-
-    DATABASES = {
-        "default": SQLITE_CONFIG,
-    }
-else:
-
-    DATABASES = {
-        "default": POSTGRES_CONFIG,
-    }
 
 
 # Password validation
