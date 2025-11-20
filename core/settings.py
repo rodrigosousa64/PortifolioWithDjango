@@ -104,6 +104,7 @@ SQLITE_CONFIG = {
 
 # 4. Aplicação da lógica condicional
 if DEBUG == True:
+
     DATABASES = {
         "default": SQLITE_CONFIG,
     }
@@ -169,6 +170,7 @@ from pathlib import Path
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [
    
     os.path.join(BASE_DIR, 'core', 'static'), 
