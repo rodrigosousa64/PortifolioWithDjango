@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from urllib.parse import urlparse, parse_qsl
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "default-para-desenvolvimento")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -100,7 +101,7 @@ SQLITE_CONFIG = {
 }
 
 # 4. Aplicação da lógica condicional
-if DEBUG == False:
+if DEBUG == True:
 
     DATABASES = {
         "default": SQLITE_CONFIG,
@@ -150,12 +151,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "arquivos_estaticos_de_producao")
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
      ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
