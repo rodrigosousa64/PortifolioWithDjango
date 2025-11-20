@@ -2,7 +2,7 @@ import subprocess
 import shlex
 import os
 import sys
-import waitress
+
 
 # Garante que o interpretador Python do venv seja usado
 PYTHON_EXEC = sys.executable
