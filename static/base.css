@@ -1,23 +1,30 @@
 /* -------------------------------------------------- */
 /* 1. Variáveis & Reset */
 /* -------------------------------------------------- */
-
 :root {
-    /* Cores */
-    --primary-color: #004692;
-    /* Azul principal */
-    --primary-dark: #002f58;
-    /* Azul escuro para hover */
-    --secondary-color: #6c757d;
-    /* Cinza suave (para texto secundário e botões) - AJUSTADO */
-    --background-color: #f4f4f9;
-    /* Fundo do BODY (CINZA CLARO) - CORRIGIDO */
-    --card-background: #ffffff;
-    /* Fundo do MAIN-CONTENT/Card Principal (BRANCO) */
-    --text-color: #343a40;
-    /* Texto escuro */
-    --border-color: #dee2e6;
-    --success-color: #28a745;
+    /* Cores de Fundo (Claro) */
+    --background-color: #000000;
+    /* Fundo do BODY (Quase Branco) */
+    --card-background: #003b8e;
+    /* Fundo do Card (Branco Puro) */
+
+    /* Cores de Destaque (Fortes e Sóbrias) */
+    --primary-color: #b9dcff;
+    /* Vermelho Telha (Main Focus) */
+    --secondary-color: #ffffff;
+    /* Cinza Carvão (Secondary Contrast) */
+
+    /* Cores de Texto */
+    --text-color: #b9dcff;
+    /* Texto Principal (Escuro) */
+    --text-muted: #6C757D;
+    /* Texto secundário (cinza) */
+
+    /* Cores de Status */
+    --success-color: #4CAF50;
+    --danger-color: #DC3545;
+    --border-color: #E9ECEF;
+
 
     /* Fontes */
     --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
