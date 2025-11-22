@@ -28,10 +28,11 @@
     border-radius: 8px;
     padding: var(--spacing-lg);
     display: flex;
+    order: 2;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: var(--box-shadow-sm);
-    min-height: 250px;
+    min-height: 100px;
 }
 
 .project-card:hover {
@@ -107,7 +108,6 @@
 }
 
 .repository-link {
-    display: inline-block;
     color: var(--card-background);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: 4px;
@@ -118,6 +118,8 @@
 
 .project-card {
     background-color: rgb(0, 8, 41);
+    display: flex;
+    
 }
 
 

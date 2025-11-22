@@ -20,13 +20,15 @@
               <div class="logo">
         <h1>Rodrigo Barbosa</h1>
         <p>Backend Developer & Computer Engineering Student</p>
-             </div>
+             
             
-            <nav id="navbar" class="nav-links">
+            <nav class="nav-links">
                 <a href="{% url 'home' %}" class="nav-item">Home</a>
                 <a href="/projects" class="nav-item">Projects</a>
                 <a href="/about" class="nav-item">Sobre</a>
             </nav>
+
+            </div>
 
             <div class="auth-controls">
                 {% if user.is_authenticated %}

@@ -3,21 +3,25 @@
 /* -------------------------------------------------- */
 :root {
     /* Cores de Fundo (Claro) */
-    --background-color: #000000;
+    --background-color: #ffffff;
     /* Fundo do BODY (Quase Branco) */
-    --card-background: #003b8e;
+    --card-background: #00b5f7;
     /* Fundo do Card (Branco Puro) */
 
-    /* Cores de Destaque (Fortes e Sóbrias) */
-    --primary-color: #b9dcff;
-    /* Vermelho Telha (Main Focus) */
+    /* barra de navegação) */
+    --primary-color: #000000;
+
+
+    /* botão sair , e subtitulo */
     --secondary-color: #ffffff;
     /* Cinza Carvão (Secondary Contrast) */
 
     /* Cores de Texto */
-    --text-color: #b9dcff;
+    --text-color: #000000;
+    --text-color2: #ffffff;
+    
     /* Texto Principal (Escuro) */
-    --text-muted: #6C757D;
+    --text-muted: #000000;
     /* Texto secundário (cinza) */
 
     /* Cores de Status */
@@ -39,6 +43,14 @@
     /* Sombra */
     --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
     --box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    color: antiquewhite;
+}
+
+.logo, a , p{
+    color: var(--text-color2);
 }
 
 /* Reset básico para melhor consistência */
@@ -70,7 +82,7 @@ body {
 /* Conteúdo principal para centralizar e limitar a largura */
 .main-content {
     width: 90%;
-    max-width: 1200px;
+    max-width: 700px;
     margin: var(--spacing-lg) auto;
     padding: var(--spacing-md);
     background-color: var(--card-background);
