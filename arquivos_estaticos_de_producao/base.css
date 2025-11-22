@@ -3,13 +3,16 @@
 /* -------------------------------------------------- */
 :root {
     /* Cores de Fundo (Claro) */
-    --background-color: #ffffff;
+    --background-color: #000000;
     /* Fundo do BODY (Quase Branco) */
-    --card-background: #00b5f7;
+
+
+    
+    --card-background: #F7F7F7;
     /* Fundo do Card (Branco Puro) */
 
     /* barra de navegação) */
-    --primary-color: #000000;
+    --primary-color: #1A6337;
 
 
     /* botão sair , e subtitulo */
@@ -17,7 +20,7 @@
     /* Cinza Carvão (Secondary Contrast) */
 
     /* Cores de Texto */
-    --text-color: #000000;
+    --text-color: #1A6337;
     --text-color2: #ffffff;
     
     /* Texto Principal (Escuro) */
@@ -46,7 +49,7 @@
 }
 
 .nav-links {
-    color: antiquewhite;
+    color: var(--text-color2);
 }
 
 .logo, a , p{
@@ -82,11 +85,10 @@ body {
 /* Conteúdo principal para centralizar e limitar a largura */
 .main-content {
     width: 90%;
-    max-width: 700px;
+    max-width: 600px;
     margin: var(--spacing-lg) auto;
     padding: var(--spacing-md);
-    background-color: var(--card-background);
-    /* Fundo BRANCO */
+    background-image: url('cardmain/cardmain9.png'); 
     border-radius: 8px;
     box-shadow: var(--box-shadow-md);
     min-height: 50vh;
@@ -109,17 +111,17 @@ body {
     align-items: center;
     width: 90%;
     max-width: 1200px;
+    max-height: 50px;
     margin: 0 auto;
 }
 
 /* Links de Navegação */
 .nav-links {
     display: flex;
-    gap: var(--spacing-lg);
-}
+    gap: var(--spacing-lg);}
 
 .nav-item {
-    color: var(--card-background);
+    color: var(--text-color2);
     text-decoration: none;
     font-size: 1.1rem;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -151,6 +153,7 @@ body {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
     font-size: 1rem;
+    
 }
 
 .button:active {
@@ -168,7 +171,7 @@ body {
 
 .logout-button {
     background-color: var(--secondary-color);
-    color: var(--card-background);
+    color: var(--background-color);
 }
 
 .logout-button:hover {
@@ -232,6 +235,17 @@ body {
 
 @media (max-width: 768px) {
 
+    .nav-links {
+            justify-content: center;
+            width: 100%;
+            /* A nav-links agora é um div, então não precisa do text-align aqui, mas não atrapalha. */
+        }
+    
+        /* Novo: Ajuste para o logo no mobile */
+        .logo {
+            margin-bottom: var(--spacing-sm);
+        }
+
     /* Header: Empilha links e auth controls */
     .header-content {
         flex-direction: column;
@@ -239,16 +253,15 @@ body {
         text-align: center;
     }
 
-    .nav-links {
-        justify-content: center;
-        width: 100%;
-    }
+
 
     .nav-item {
         flex-grow: 1;
         text-align: center;
         padding: var(--spacing-sm);
     }
+
+ 
 
     /* Main Content: Ajusta padding e margens */
     .main-content {
