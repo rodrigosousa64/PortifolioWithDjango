@@ -15,37 +15,39 @@
 <body class="body-container">
 
     <header class="header-container">
-        <div class="header-content">
+    <div class="header-content">
 
-              <div class="logo">
-        <h1>Rodrigo Barbosa</h1>
-        <p>Backend Developer & Computer Engineering Student</p>
-             
-            
-            <nav class="nav-links">
-                <a href="{% url 'home' %}" class="nav-item">Home</a>
-                <a href="/projects" class="nav-item">Projects</a>
-                <a href="/about" class="nav-item">Sobre</a>
-            </nav>
 
-            </div>
+        <div class="nav-links">
+                    <h1 class="logo"> # By Drigo # </h1>
 
-            <div class="auth-controls">
-                {% if user.is_authenticated %}
-                <form method="POST" action="{% url 'logout' %}" class="logout-form">
-                    {% csrf_token %}
-                    <button type="submit" class="button logout-button">
-                        Logout
-                    </button>
-                </form>
-                {% else %}
-                <a href="/login" class="button login-button">
-                    Login
-                </a>
-                {% endif %}
-            </div>
+            <a href="{% url 'home' %}" class="nav-item">Home</a>
+            <a href="/projects" class="nav-item">Projects</a>
+            <a href="/about" class="nav-item">Sobre</a>
         </div>
-    </header>
+
+        <div class="auth-controls">
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="button logout-button">
+                    Logout
+                </button>
+            </form>
+            {% else %}
+            <a href="/login" class="button login-button">
+                Login
+            </a>
+            {% endif %}
+        </div>
+
+    </div>
+</header>
+
+
+
+            <hr>
+
 
     <main class="main-content">
         {% block content %}
