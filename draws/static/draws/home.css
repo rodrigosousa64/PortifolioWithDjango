@@ -1,0 +1,13 @@
+.header-container {
+    /* CORRETO: Referencia a imagem na mesma pasta do CSS */
+    background-image: url('draw.png');
+    width: 600px;
+    height: 550px;
+
+    /* Sempre inclua estas propriedades para controle */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Faz a imagem cobrir todo o fundo */
+    background-position: right;
+    /* Alterado de 'left' para 'right' */
+}
