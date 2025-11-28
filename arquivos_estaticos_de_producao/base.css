@@ -3,16 +3,15 @@
 /* -------------------------------------------------- */
 :root {
     /* Cores de Fundo (Claro) */
-    --background-color: #000000;
+    --background-color: #ffffff;
     /* Fundo do BODY (Quase Branco) */
 
 
-    
     --card-background: #F7F7F7;
     /* Fundo do Card (Branco Puro) */
 
     /* barra de navegação) */
-    --primary-color: #1A6337;
+    --primary-color: #1a5963;
 
 
     /* botão sair , e subtitulo */
@@ -21,8 +20,8 @@
 
     /* Cores de Texto */
     --text-color: #1A6337;
-    --text-color2: #ffffff;
-    
+    --text-color2: #000000;
+
     /* Texto Principal (Escuro) */
     --text-muted: #000000;
     /* Texto secundário (cinza) */
@@ -52,7 +51,9 @@
     color: var(--text-color2);
 }
 
-.logo, a , p{
+.logo,
+a,
+p {
     color: var(--text-color2);
 }
 
@@ -73,26 +74,62 @@ body {
 }
 
 /* -------------------------------------------------- */
-/* 2. Layout Principal */
+/* 2. Layout Principal (CSS Grid para Sidebar/Main) */
 /* -------------------------------------------------- */
 
 .body-container {
+    /* Define o container como Grid para posicionar Header, Sidebar, Main e Footer */
     display: grid;
-    grid-template-rows: auto 1fr auto;
+
+    /* LAYOUT PADRÃO (Desktop): Sidebar | Main */
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+    /* Define as colunas: 1 parte para Sidebar | 4 partes para Main */
+    grid-template-columns: 1fr 4fr;
+
     min-height: 100vh;
 }
 
-/* Conteúdo principal para centralizar e limitar a largura */
-.main-content {
-    width: 90%;
-    max-width: 600px;
-    margin: var(--spacing-lg) auto;
-    padding: var(--spacing-md);
-    background-image: url('cardmain/cardmain9.png'); 
-    border-radius: 8px;
-    box-shadow: var(--box-shadow-md);
-    min-height: 50vh;
+/* Atribuição das áreas do Grid */
+.header-container {
+    grid-area: header;
 }
+
+/* ⬅️ NOVO: Estilo para a Sidebar ⬅️ */
+.sidebar-card {
+    grid-area: sidebar;
+    /* Posiciona na primeira coluna */
+    background-color: var(--card-background);
+    padding: var(--spacing-md);
+    box-shadow: var(--box-shadow-sm);
+    border-right: 1px solid var(--border-color);
+    /* Linha de separação visual */
+    min-height: 50PX;}
+
+/* Conteúdo Principal */
+.main-content {
+    grid-area: main;
+    /* Coloca na segunda coluna, ao lado da sidebar */
+
+    /* Regras que garantem o preenchimento da área e removem as limitações de card anteriores */
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    /* Espaçamento interno */
+    background-image: url('cardmain/cardmain9.png');
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 30PX;
+}
+
+.footer-container {
+    grid-area: footer;
+}
+
 
 /* -------------------------------------------------- */
 /* 3. Header (Cabeçalho) */
@@ -118,7 +155,8 @@ body {
 /* Links de Navegação */
 .nav-links {
     display: flex;
-    gap: var(--spacing-lg);}
+    gap: var(--spacing-lg);
+}
 
 .nav-item {
     color: var(--text-color2);
@@ -153,7 +191,7 @@ body {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
     font-size: 1rem;
-    
+
 }
 
 .button:active {
@@ -235,16 +273,16 @@ body {
 
 @media (max-width: 768px) {
 
-    .nav-links {
-            justify-content: center;
-            width: 100%;
-            /* A nav-links agora é um div, então não precisa do text-align aqui, mas não atrapalha. */
-        }
-    
-        /* Novo: Ajuste para o logo no mobile */
-        .logo {
-            margin-bottom: var(--spacing-sm);
-        }
+    /* ⬅️ NOVO: Redefine o Grid para Mobile: layout de 1 coluna (empilhado) ⬅️ */
+    .body-container {
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        /* Uma única coluna */
+    }
 
     /* Header: Empilha links e auth controls */
     .header-content {
@@ -253,7 +291,10 @@ body {
         text-align: center;
     }
 
-
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+    }
 
     .nav-item {
         flex-grow: 1;
@@ -261,7 +302,12 @@ body {
         padding: var(--spacing-sm);
     }
 
- 
+    /* Sidebar Card: Ajustes para mobile */
+    .sidebar-card {
+        border-right: none;
+        box-shadow: none;
+    }
+
 
     /* Main Content: Ajusta padding e margens */
     .main-content {

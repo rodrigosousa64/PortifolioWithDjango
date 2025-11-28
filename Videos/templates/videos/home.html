@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'videos/home.css' %}">
+{% endblock extra_css %}
+
+
+
+
+
+{% block content %}
+
+<div class="videos-container">
+<a href="https://www.youtube.com/@reservatoriodedopamina" target="_blank">
+    <div class="items-containerReservatorio">
+        
+
+
+    </div>
+</a>
+
+<a href="https://www.youtube.com/@UMPOUCOMELHOR." target="_blank">
+    <div class="items-containerSejamelhor">
+        
+
+
+    </div>
+</a>
+
+<a href="https://www.youtube.com/@ludoviajante" target="_blank">
+    <div class="items-containerLudoviajante">
+        
+
+
+    </div>
+</a>
+
+<a href="https://www.youtube.com/@senhordart" target="_blank">
+    <div class="items-containerSrDart">
+        
+
+
+    </div>
+</a>
+
+
+
+</div>
+    
+    
+{% endblock %}
+
+
+
+
+
+{% block sidebar %}
+
+
+<aside class="sidebar-card">
+    <nav class="profile-nav">
+        <h3>Opções de Perfil</h3>
+        <ul>
+            <li><a href="/songs">Favorite songs</a></li>    
+            <li><a href="/videos">Favorite channels</a></li>
+        </ul>
+    </nav>
+</aside>
+
+
+
+
+
+{% endblock %}

@@ -27,4 +27,7 @@ urlpatterns = [
     path("home", include("home.urls")),
     path("", include("home.urls")),
     path("draws/", include("draws.urls")),
+    path("perfil/", include("Perfil.urls")),
+    path("videos/", include("Videos.urls")),
+    path("songs/", include("Songs.urls")),
 ]

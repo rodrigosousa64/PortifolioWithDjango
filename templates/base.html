@@ -10,49 +10,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     {% block extra_css %}{% endblock extra_css %}
+
+
 </head>
 
 <body class="body-container">
 
     <header class="header-container">
-    <div class="header-content">
+        <div class="header-content">
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-item">Home</a>
+                <a href="/projects" class="nav-item">Projetos</a>
+                <a href="/about" class="nav-item">Sobre</a>
+                <a href="{% static 'curriculo/2M-Rodrigo__de_Sousa _Analista_Junior_engenharia_da_computacão.pdf' %}" download="Rodrigo__de_Sousa _Analista_Junior_engenharia_da_computacão.pdf" class="nav-item" >Currículo</a>
+            </div>
 
-
-        <div class="nav-links">
-
-            <a href="{% url 'home' %}" class="nav-item">Home</a>
-            <a href="/projects" class="nav-item">Projetos</a>
-            <a href="/about" class="nav-item">Sobre</a>
-            <a href="{% static 'curriculo/2M-Rodrigo__de_Sousa _Analista_Junior_engenharia_da_computacão.pdf' %}" download="Rodrigo__de_Sousa _Analista_Junior_engenharia_da_computacão.pdf"  class="nav-item" >Currículo</a>
+            <div class="auth-controls">
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'logout' %}" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="button logout-button">
+                        Logout
+                    </button>
+                </form>
+                {% else %}
+                <a href="/login" class="button login-button">
+                    Login
+                </a>
+                {% endif %}
+            </div>
         </div>
+    </header>
 
-        <div class="auth-controls">
-            {% if user.is_authenticated %}
-            <form method="POST" action="{% url 'logout' %}" class="logout-form">
-                {% csrf_token %}
-                <button type="submit" class="button logout-button">
-                    Logout
-                </button>
-            </form>
-            {% else %}
-            <a href="/login" class="button login-button">
-                Login
-            </a>
-            {% endif %}
-        </div>
-
-    </div>
-</header>
-
-
-
-            
+    
+    {# 💡 NOVO: Sidebar envolvida por um elemento para o CSS Grid #}
+    <aside class="sidebar-card"> 
+        {% block sidebar %}
+        {% endblock %}
+    </aside>
 
 
     <main class="main-content">
         {% block content %}
         {% endblock %}
-    </main>
+    </main> 
     
     <footer class="footer-container">
         <div class="footer-content">
@@ -60,16 +61,16 @@
             
             <div name="footer-content" class="social-links"> 
                 <a href="https://www.linkedin.com/in/rodrigo-sousa-barbosa-4702872b8/" target="_blank" 
-                   class="social-item">
+                    class="social-item">
                     <i class="fab fa-linkedin"></i> Linkedin
                 </a>
                 <a href="https://github.com/rodrigosousa64?tab=repositories" target="_blank" 
-                   class="social-item">
+                    class="social-item">
                     <i class="fab fa-github"></i> Github
                 </a>
             </div>
         </div>
     </footer>
     
-    </body>
+</body>
 </html>
