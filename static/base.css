@@ -11,7 +11,7 @@
     /* Fundo do Card (Branco Puro) */
 
     /* barra de navegação) */
-    --primary-color: #1a5963;
+    --primary-color: #213c8e;
 
 
     /* botão sair , e subtitulo */
@@ -123,7 +123,6 @@ body {
     background-image: url('cardmain/cardmain9.png');
     border-radius: 0;
     box-shadow: none;
-    min-height: 30PX;
 }
 
 .footer-container {
@@ -136,20 +135,33 @@ body {
 /* -------------------------------------------------- */
 
 .header-container {
-    background-color: var(--primary-color);
-    color: var(--card-background);
-    padding: var(--spacing-sm) 0;
-    box-shadow: var(--box-shadow-md);
+    width: 100%;
+    min-height: 60px;
+    background-color:var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Conteúdo Interno do Header */
 .header-content {
+    /* Usa Flexbox para organizar os elementos internos horizontalmente */
     display: flex;
-    justify-content: space-between;
+    /* Alinha os itens verticalmente ao centro */
     align-items: center;
-    width: 90%;
+    /* Distribui o espaço entre os grupos (nav-links e auth-controls) */
+    justify-content: space-between;
+
+    /* Centraliza o conteúdo e limita a largura máxima */
     max-width: 1200px;
-    max-height: 50px;
+    /* Largura máxima do site (exemplo) */
     margin: 0 auto;
+    /* Centraliza o bloco na tela */
+    /* Adiciona um padding interno para não grudar nas bordas */
+    padding: 0 20px;
+    /* Garante que o conteúdo ocupe 100% da largura do container */
+    width: 100%;
 }
 
 /* Links de Navegação */

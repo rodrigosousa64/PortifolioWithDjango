@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/home.css' %}" />
+{% endblock extra_css %} {% block sidebar %}
+
+<aside class="sidebar-card">
+  <nav class="profile-nav">
+    <h3>Welcome to my world.</h3>
+    <ul>
+      <li><a href="/semanas">Metas</a></li>
+
+      <li><a href="/semanas/create/">Create a meta</a></li>
+    </ul>
+  </nav>
+</aside>
+
+{% endblock %} {% block content %} 
+
+
+{% for i in form.visible_fields %}
+
+<form action="{% url "create_meta" %}" method="POST">
+  {% csrf_token %}
+  <div>
+    <label> {{i.label}}</label>
+    {{i}}
+  </div>
+
+{% endfor %}
+
+  <div>
+    <button type="submit" >criar</button>
+  </div>
+
+</form>
+
+
+
+
+{% endblock %}

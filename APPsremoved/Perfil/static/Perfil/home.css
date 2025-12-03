@@ -1,65 +1,20 @@
-
-
-
-
 .videos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    column-gap: normal;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
 }
 
-.items-containerSrDart {
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    background-image:url('SrDart.jpg');
-    width: 450px;
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: #90b3d8;
-    border-radius: 8px;
-}
-.items-containerLudoviajante {
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    background-image:url('ludoviajante.jpg');
-    width: 450px;
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: #90b3d8;
-    border-radius: 8px;
+.songs-item {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
 }
 
-.items-containerReservatorio {
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    background-image:url('Reservatoriodedopamina.jpg');
-    width: 450px;
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: #90b3d8;
-    border-radius: 8px;
-}
-.items-containerSejamelhor {
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    background-image:url('sejaumpoucomelhor.jpg');
-    width: 450px;
-    height: 150px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: #90b3d8;
-    border-radius: 8px;
-}
+
 
 
 

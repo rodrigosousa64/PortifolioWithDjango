@@ -4,10 +4,27 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'videos/home.css' %}">
-{% endblock extra_css %}
+{% endblock %}
+
+
+{% block sidebar %}
+
+
+<aside class="sidebar-card">
+    <nav class="profile-nav">
+        <h3>Opções de Perfil</h3>
+        <ul>
+            <li><a href="/songs">Favorite songs</a></li>    
+            <li><a href="/videos">Favorite channels</a></li>
+        </ul>
+    </nav>
+</aside>
 
 
 
+
+
+{% endblock %}
 
 
 {% block content %}
@@ -56,21 +73,3 @@
 
 
 
-{% block sidebar %}
-
-
-<aside class="sidebar-card">
-    <nav class="profile-nav">
-        <h3>Opções de Perfil</h3>
-        <ul>
-            <li><a href="/songs">Favorite songs</a></li>    
-            <li><a href="/videos">Favorite channels</a></li>
-        </ul>
-    </nav>
-</aside>
-
-
-
-
-
-{% endblock %}

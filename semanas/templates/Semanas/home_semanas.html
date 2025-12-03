@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock extra_css %}
+
+
+
+{% block sidebar %}
+
+
+<aside class="sidebar-card">
+    <nav class="profile-nav">
+        <h3>Welcome to my world.</h3>
+        <ul>
+            <li><a href="/semanas">Metas</a></li>
+            <li><a href="/semanas/create/">Create a meta</a></li>
+            
+        </ul>
+    </nav>
+</aside>
+
+
+
+
+
+
+
+ 
+{% endblock %}
+
+ 
+{% block content %} 
+
+
+{% if metas %}
+
+  {%for i in metas %}
+
+   <h1>{{i.nome_meta}}</h1>
+   <h1></h1>
+
+  
+  {% endfor %}
+
+{% else %}
+
+        <div class="no-projects-message">
+            <p class="no-projects-text">Nenhuma meta disponível no momento.</p>
+        </div>
+
+{% endif %}
+
+
+
+
+{% endblock %}
