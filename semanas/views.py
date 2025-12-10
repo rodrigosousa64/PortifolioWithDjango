@@ -1,17 +1,33 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from semanas.forms import MetaForm
-from semanas.models import Meta_model
+from semanas.models import MetaObjetivo,Objetivo_Semana, Registro_diario
+from datetime import date
+
 # Create your views here.
 
-def home_semanas(request):
 
-    todas_metas = Meta_model.objects.all()
+def semanas(request):
 
-    metas = {
-        'metas': todas_metas
-    }
+    if request.method == "GET":
 
-    return render(request, "Semanas/home_semanas.html",metas)
+        siglas = ["S", "T", "Q", "Q", "S", "S", "D"]
+
+        todas_metas = Objetivo_Semana.objects.all()
+
+        contexto = {"todas_metas": todas_metas, "siglas": siglas}
+
+        return render(request, "Semanas/home_semanas.html", contexto)
+
+
+def toggle(request, id):
+
+    meta = get_object_or_404(Objetivo_Semana, id=id)
+    
+
+    registro, created = Registro_diario.objects.get_or_create(meta=meta)
+    registro.marcar_hoje_como_feito()
+    return redirect("metas")
+
 
 def create_meta(request):
 
@@ -20,12 +36,10 @@ def create_meta(request):
 
         form.save()
 
-        
-
         return redirect("metas")
 
     else:
 
-     form = MetaForm()
+        form = MetaForm()
 
-     return render (request ,'Semanas/form_create_meta.html', {"form" : form} )
+        return render(request, "Semanas/form_create_meta.html", {"form": form})

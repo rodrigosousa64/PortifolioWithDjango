@@ -3,8 +3,8 @@
 
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'home/home.css' %}">
-{% endblock extra_css %}
+    <link rel="stylesheet" href="{% static 'semanas/home.css' %}">
+{% endblock %}
 
 
 
@@ -22,28 +22,54 @@
     </nav>
 </aside>
 
-
-
-
-
-
-
- 
 {% endblock %}
 
  
+
+
+
 {% block content %} 
 
 
-{% if metas %}
+{% if todas_metas %}
 
-  {%for i in metas %}
+<div class="metas-grid-container">
+    {% for dado in todas_metas %}
+        <div class="meta-card">
+            <h3>{{ dado.nome }}</h3>
+            <p>Frequência Semanal: {{ dado.vezes_na_semana }} vezes</p>
+            
+            <div class="circular-progress-container">
+                <div class="progress-circle" style="--p: {{ dado.progresso }};">
+                    <span class="progress-value">{{ dado.progresso }}%</span>
+                </div>
+            </div>
 
-   <h1>{{i.nome_meta}}</h1>
-   <h1></h1>
+            <div class="dias-container" style="display: flex; gap: 5px;">
+                
+                {% for dia in dado.lista_dias %}
 
-  
-  {% endfor %}
+                    <div class="checkbox">
+                        <form method="POST" action="{% url 'toggle' dado.id %}">
+                            {% csrf_token %}
+                            
+                            <label>
+                                <input type="checkbox"
+                                       onChange="this.form.submit()"
+                                       {% if dia.feito %} checked {% endif %}>
+                                
+                                {{ dia.sigla }}
+                            </label>
+
+                        </form>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
 
 {% else %}
 
@@ -52,7 +78,6 @@
         </div>
 
 {% endif %}
-
 
 
 

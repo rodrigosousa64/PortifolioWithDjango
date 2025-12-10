@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from semanas.models import Objetivo_Semana
+
+admin.site.register(Objetivo_Semana)

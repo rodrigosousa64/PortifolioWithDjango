@@ -1,9 +1,10 @@
 from django import forms
-from semanas.models import Meta_model
+from semanas.models import MetaObjetivo
+from semanas.models import Objetivo_Semana
 
 class MetaForm(forms.ModelForm):
 
     class Meta:
-        model = Meta_model
+        model = Objetivo_Semana
 
-        fields = ['nome_meta' , 'vezes_na_semana']
+        fields = ["vezes_na_semana", "nome"]
