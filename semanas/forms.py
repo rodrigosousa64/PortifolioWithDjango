@@ -1,5 +1,5 @@
 from django import forms
-from semanas.models import MetaObjetivo
+
 from semanas.models import Objetivo_Semana
 
 class MetaForm(forms.ModelForm):

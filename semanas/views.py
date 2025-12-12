@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from semanas.forms import MetaForm
-from semanas.models import MetaObjetivo,Objetivo_Semana, Registro_diario
+from semanas.models import Objetivo_Semana, Registro_diario
 from datetime import date
 
 # Create your views here.

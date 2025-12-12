@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+.metas-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.meta-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+
+   
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   
+    width: auto;
+   
+    height: auto;
+}
+
+
+
+.circular-progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    
+}
+
+
+.progress-circle {
+   
+    --r: 60px; 
+    width: calc(2 * var(--r));
+    height: calc(2 * var(--r));
+    
+    --c: #4CAF50; 
+    --b: #e0e0e0; 
+    --t: 10px; 
+    background: 
+        radial-gradient(
+            closest-side, 
+            white calc(100% - var(--t)), 
+            transparent calc(100% - var(--t))
+        ),
+        conic-gradient(var(--c) calc(var(--p) * 1%), var(--b) 0);
+    
+    border-radius: 50%; 
+    display: grid;
+    place-items: center; 
+}
+
+.progress-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}

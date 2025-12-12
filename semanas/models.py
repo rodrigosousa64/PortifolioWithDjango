@@ -135,50 +135,7 @@ class Registro_diario(Registro):
         self.meta.save()
 
 
-class MetaObjetivo(models.Model):
-    nome_meta = models.CharField(max_length=100)
-    vezes_na_semana = models.IntegerField()
-    feitas_na_semana = models.IntegerField(default=0)
 
-    def __str__(self):
-        return self.nome_meta
-
-
-class RegistroSemana(models.Model):
-
-    meta = models.ForeignKey(
-        MetaObjetivo, on_delete=models.CASCADE, related_name="registros"
-    )
-
-    segunda = models.BooleanField(default=False)
-    terca = models.BooleanField(default=False)
-    quarta = models.BooleanField(default=False)
-    quinta = models.BooleanField(default=False)
-    sexta = models.BooleanField(default=False)
-    sabado = models.BooleanField(default=False)
-    domingo = models.BooleanField(default=False)
-
-    data_inicio = models.DateField(default=timezone.now)
-    concluido = models.BooleanField(default=False)
-
-    class Meta:
-        # Garante apenas um registro por meta por semana
-        unique_together = ("meta", "data_inicio")
-        ordering = ["-data_inicio"]
-
-    @property
-    def progresso_percentual(self):
-        dias = [
-            self.segunda,
-            self.terca,
-            self.quarta,
-            self.quinta,
-            self.sexta,
-            self.sabado,
-            self.domingo,
-        ]
-        total_concluido = sum(dias)
-        return int((total_concluido / 7) * 100)
 
 
 @receiver(post_save, sender=Objetivo_Semana)
