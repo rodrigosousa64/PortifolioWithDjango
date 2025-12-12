@@ -160,3 +160,9 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://rodrigo.squareweb.app/",
+    "https://www.rodrigo.squareweb.app/",
+]
